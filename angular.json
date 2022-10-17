@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "crud-agular"
+  "defaultProject": "crud-agular",
+  "cli": {
+    "analytics": "2fafcf1b-1239-4899-97b6-54a2f08648a0"
+  }
 }
