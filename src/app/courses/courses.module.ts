@@ -5,12 +5,14 @@ import { SharedModule } from '../shared/shared.module';
 import { AppMaterialModule } from './../shared/app-material/app-material.module';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 
 
 @NgModule({
   declarations: [
-    CoursesComponent //NÃO ESQUECER DE DECLARAR O MUDULO AQUI, SE NAO OS COMPONENTES NAO ENXERGAM A CLASSE DENTRO DE CoursesComponent
+    CoursesComponent,
+    CourseFormComponent //NÃO ESQUECER DE DECLARAR O MUDULO AQUI, SE NAO OS COMPONENTES NAO ENXERGAM A CLASSE DENTRO DE CoursesComponent
   ],
   imports: [
     CommonModule,
