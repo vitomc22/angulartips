@@ -18,4 +18,8 @@ export class CoursesService {
       //atrasando o recebimento de proposito para testar o spinner
       tap(courses => console.log(courses))); //pipe para coleta dos dados e tap para usar log de forma reativa
   }
+
+  save(record: Course){
+    return this.httpClient.post<Course>(this.API,record).pipe(first());   
+  }
 }
