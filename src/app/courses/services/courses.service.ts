@@ -1,7 +1,9 @@
-import { Course } from './../model/course';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import { first, tap } from 'rxjs/operators';
+
+import { Course } from './../model/course';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +21,7 @@ export class CoursesService {
       tap(courses => console.log(courses))); //pipe para coleta dos dados e tap para usar log de forma reativa
   }
 
-  save(record: Course){
+  save(record: Partial<Course>){ //partial significa que aceito o objeto incompleto, sem todos os atributos, tipo um DTO do java
     return this.httpClient.post<Course>(this.API,record).pipe(first());   
   }
 }
