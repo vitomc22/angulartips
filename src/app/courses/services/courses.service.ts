@@ -24,4 +24,9 @@ export class CoursesService {
   save(record: Partial<Course>){ //partial significa que aceito o objeto incompleto, sem todos os atributos, tipo um DTO do java
     return this.httpClient.post<Course>(this.API,record).pipe(first());   
   }
+
+  loadByid(id: string){
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
 }
