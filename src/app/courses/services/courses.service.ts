@@ -17,13 +17,12 @@ export class CoursesService {
       .get<Course[]>(this.API) //Criamos um observable, com generics do tipo Course que é lista
       .pipe(
         first(), //somente pegar o dado uma fez
-        //atrasando o recebimento de proposito para testar o spinner
         tap((courses) => console.log(courses))
       ); //pipe para coleta dos dados e tap para usar log de forma reativa
   }
 
   save(record: Partial<Course>) {
-    //partial significa que aceito o objeto incompleto, sem todos os atributos, tipo um DTO do java
+    //partial significa que aceito o objeto incompleto, sem todos os atributos, tipo um DTO ou optional
     if(record._id){
       return this.update(record);
     }
@@ -36,6 +35,10 @@ export class CoursesService {
 
   private update(record: Partial<Course>) {
     return this.httpClient.put<Course>(`${this.API}/${record._id}`, record).pipe(first());
+  }
+
+  delete(id: String) {
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
 
   loadByid(id: string) {

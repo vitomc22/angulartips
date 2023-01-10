@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ErrorDialogComponent } from './componentes/error-dialog/error-dialog.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { CategoryPipe } from './pipes/category.pipe';
+import { ConfirmationDialogComponent } from './componentes/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -10,7 +11,8 @@ import { CategoryPipe } from './pipes/category.pipe';
   declarations: [
 
     ErrorDialogComponent,
-     CategoryPipe
+     CategoryPipe,
+     ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,7 @@ import { CategoryPipe } from './pipes/category.pipe';
   ],
   exports: [
     ErrorDialogComponent,
+    ConfirmationDialogComponent,
     CategoryPipe]
 })
 export class SharedModule { }

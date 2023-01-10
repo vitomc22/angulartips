@@ -3,22 +3,25 @@
     <mat-card-content>
     <form [formGroup]="form" class="min-width">
         <mat-form-field class="full-width">
-            <input matInput placeholder="Nome" formControlName="name">
+            <input matInput placeholder="Nome" #name formControlName="name">
+            <mat-hint align="start" >{{name.value.length}}/100</mat-hint>
+            <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage("name")}}</mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
             <mat-label>Categoria</mat-label>
             <mat-select formControlName="category">
-              <mat-option value="null"></mat-option>
+              <mat-error *ngIf="form.get('category')?.invalid">{{getErrorMessage("category")}}</mat-error>
               <mat-option value="front-end">Frond-End</mat-option>
               <mat-option value="back-end">Back-End</mat-option>
-            </mat-select>            
+            </mat-select>
+            <mat-hint align="start">Selecione uma categoria aqui</mat-hint>
         </mat-form-field>
     </form>
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+        <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
         <button mat-raised-button (click)="onCancel()">Cancelar</button>
     </mat-card-actions>
 </mat-card>
