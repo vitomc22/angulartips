@@ -13,10 +13,10 @@ export class CourseResolver implements Resolve<Course> {
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Course> {
-    if (route.params && route.params['id']){
+    if (route.params?.['id']){
       return this.service.loadByid(route.params['id']);
 
     }
-    return of({_id:'',name:'',category:''});
+    return of({_id:'',name:'',category:'',lessons:[]});
   }
 }
